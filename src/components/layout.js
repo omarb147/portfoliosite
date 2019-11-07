@@ -23,7 +23,23 @@ export default styled(Layout)`
   padding: 100px 0px;
 
   .content {
-    padding-left: ${CSS.sidebarWidth + CSS.contentSidePadding}px;
     padding-right: ${CSS.contentSidePadding}px;
+    padding-top: 0px;
+  }
+
+  @media only screen and (max-width: ${CSS.theme.sm.maxWidth}) {
+    padding: 0px 0px 20px;
+    .content {
+      padding-left: ${CSS.contentSidePadding}px;
+    }
+  }
+
+  @media only screen and (min-width: ${CSS.theme.sm.maxWidth}) {
+    .content {
+      padding-left: calc(
+        ${CSS.theme.lg.sidebarWidth} + ${CSS.contentSidePadding}px
+      );
+      padding-top: 0px;
+    }
   }
 `

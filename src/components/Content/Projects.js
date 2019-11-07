@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import ContentLayout from "./ContentLayout"
+import Button from "../Utils/Button"
 import image from "../../images/bg.jpg"
 import { useStaticQuery, grapql } from "gatsby"
 import * as CSS from "../../constants/css-constants"
@@ -34,7 +35,12 @@ const Projects = ({ className, id }) => {
           const { mainImage, strapiId, title, caption, slug } = project.node
           return (
             <div className="project" key={strapiId}>
-              <img className="project_image" src={mainImage.publicURL}></img>
+              <div className="project_image">
+                <img src={mainImage.publicURL} />
+                <div className="image_button">
+                  <Button size={1.5}>More Details</Button>
+                </div>
+              </div>
               <div className="project_title">{title}</div>
               <div className="project_caption">{caption}</div>
             </div>
@@ -60,6 +66,10 @@ export default styled(Projects)`
         object-fit: cover;
         width: 100%;
         height: 300px;
+        opacity: 1;
+        display: block;
+        transition: .5s ease;
+        backface-visibility: hidden;
       }
 
       .project_caption,
@@ -73,5 +83,36 @@ export default styled(Projects)`
         font-size: 0.8em;
       }
     }
+
+    .project_image{
+      position: relative;
+
+      .image_button{
+        transition: .5s ease;
+        opacity: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        position: absolute;
+      
+      }
+    }
+    .project_image:hover{
+      .image_button{
+       opacity:1;
+      }
+
+      img{
+        opacity:0.3;
+      }
+      
+    }
+
+    @media only screen and (max-width: ${CSS.theme.xl.maxWidth}) {
+      
+      .project{
+        flex-basis: calc(100% - 30px);
+      }
   }
 `

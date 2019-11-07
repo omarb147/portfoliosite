@@ -5,7 +5,7 @@ export default styled.button`
   background-color: Transparent;
   color: #787878;
   padding: 10px 20px;
-  font-size: 0.8em;
+  font-size: ${props => `${props.size}em` || "0.8em"};
   border: 3px solid #efefef;
   border-radius: 10px;
 

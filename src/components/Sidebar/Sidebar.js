@@ -2,11 +2,11 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import image from "../../images/person.jpeg"
-import bg from "../../images/bg.jpg"
 import Footer from "./footer"
 import nav from "../../constants/nav-links"
 import HR from "../Utils/horizontalRule"
 import * as CSS from "../../constants/css-constants"
+import SidebarLayout from "../Utils/SidebarLayout"
 
 const getSiteDetails = graphql`
   query getSiteDetails {
@@ -26,12 +26,10 @@ const getSiteDetails = graphql`
 
 const Sidebar = ({ className }) => {
   const data = useStaticQuery(getSiteDetails)
-
-  console.log(data)
   const info = data.allStrapiConfig.edges[0].node
   const { siteName, siteDescription, sidebarImage } = info
   return (
-    <div className={className}>
+    <SidebarLayout className={className}>
       <div className="details_box">
         <img className="display_Image" src={sidebarImage.publicURL}></img>
         <div className="description">
@@ -39,7 +37,7 @@ const Sidebar = ({ className }) => {
           {siteDescription}
         </div>
       </div>
-      <HR />
+      <HR className="HR" />
       <div className="nav">
         <ul>
           {Object.keys(nav).map(key => (
@@ -52,25 +50,11 @@ const Sidebar = ({ className }) => {
         </ul>
       </div>
       <Footer />
-    </div>
+    </SidebarLayout>
   )
 }
 
 export default styled(Sidebar)`
-  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)),
-    url(${bg}) no-repeat center;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow-x: hidden;
-  z-index: 1;
-  top: 0;
-  position: fixed;
-  width: ${CSS.sidebarWidth}px;
-  left: 0;
-  padding: 50px;
-
   .details_box {
     display: flex;
     flex: 2;
@@ -109,5 +93,21 @@ export default styled(Sidebar)`
     object-fit: cover;
     height: 150px;
     width: 150px;
+  }
+
+  @media only screen and (max-width: ${CSS.theme.sm.maxWidth}) {
+    .details_box {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    .description {
+      line-height: ${CSS.theme.sm.lineHeight};
+      text-align: left;
+      padding-left: ${CSS.theme.sm.padding};
+    }
+    .nav,
+    .HR {
+      display: none;
+    }
   }
 `
