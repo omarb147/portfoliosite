@@ -24,7 +24,7 @@ export default styled(ContentLayout)`
   .section_content,
   .main_title,
   .sub_title {
-    padding: 20px 0;
+    padding: 10px 0;
     color: #787878;
   }
 

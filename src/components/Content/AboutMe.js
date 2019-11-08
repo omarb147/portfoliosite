@@ -20,9 +20,9 @@ const AboutMe = ({ className, id }) => {
         placeat aut, veritatis sunt aspernatur? Saepe minima amet quidem
         mollitia. Magnam, quam doloribus.
       </div>
-      <div className="action_button">
+      {/* <div className="action_button">
         <Button>Check My CV</Button>
-      </div>
+      </div> */}
     </ContentLayout>
   )
 }

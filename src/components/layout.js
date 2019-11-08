@@ -1,17 +1,24 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import Helmet from "react-helmet"
 import styled from "styled-components"
+import favicon from "../images/favicon.ico"
 import Sidebar from "./Sidebar/Sidebar"
 import * as CSS from "../constants/css-constants"
 import "./layout.css"
 
 const Layout = ({ children, className }) => {
   return (
-    <div className={className}>
-      <Sidebar />
-      <div className="content">{children}</div>
-    </div>
+    <>
+      <Helmet>
+        <link rel="icon" href={favicon}></link>
+      </Helmet>
+      <div className={className}>
+        <Sidebar />
+        <div className="content">{children}</div>
+      </div>
+    </>
   )
 }
 
@@ -20,7 +27,7 @@ Layout.propTypes = {
 }
 
 export default styled(Layout)`
-  padding: 100px 0px;
+  padding: ${props => props.padding || "100px 0px"};
 
   .content {
     padding-right: ${CSS.contentSidePadding}px;

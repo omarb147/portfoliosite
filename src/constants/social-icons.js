@@ -4,27 +4,15 @@ import { MdEmail } from "react-icons/md"
 
 export default [
   {
-    icon: (
-      <a>
-        <FaGithub className="github" />
-      </a>
-    ),
+    icon: <FaGithub className="github" />,
     title: "github",
   },
   {
-    icon: (
-      <a>
-        <FaLinkedin className="linkedin" />
-      </a>
-    ),
+    icon: <FaLinkedin className="linkedin" />,
     title: "linkedin",
   },
   {
-    icon: (
-      <a>
-        <MdEmail className="email" />
-      </a>
-    ),
+    icon: <MdEmail className="email" />,
     title: "email",
   },
 ]

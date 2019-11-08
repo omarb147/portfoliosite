@@ -1,10 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import ContentLayout from "./ContentLayout"
-import Button from "../Utils/Button"
-import image from "../../images/bg.jpg"
-import { useStaticQuery, grapql } from "gatsby"
-import * as CSS from "../../constants/css-constants"
+import ContentLayout from "../ContentLayout"
+import Button from "../../Utils/Button"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import * as CSS from "../../../constants/css-constants"
 
 const getProjects = graphql`
   query Projects {
@@ -27,7 +26,7 @@ const getProjects = graphql`
 const Projects = ({ className, id }) => {
   const data = useStaticQuery(getProjects)
   const { edges } = data.allStrapiProject
-  console.log(edges)
+
   return (
     <ContentLayout subTitle="Projects" className={className} id={id} Seperator>
       <div className="project_grid">
@@ -38,10 +37,14 @@ const Projects = ({ className, id }) => {
               <div className="project_image">
                 <img src={mainImage.publicURL} />
                 <div className="image_button">
-                  <Button size={1.5}>More Details</Button>
+                  <Link to={`/${slug}`}>
+                    <Button size={1.5}>More Details</Button>
+                  </Link>
                 </div>
               </div>
-              <div className="project_title">{title}</div>
+              <Link to={`/${slug}`}>
+                <div className="project_title">{title}</div>
+              </Link>
               <div className="project_caption">{caption}</div>
             </div>
           )

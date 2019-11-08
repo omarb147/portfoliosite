@@ -65,6 +65,7 @@ export default styled(Sidebar)`
   }
 
   .description {
+    color: hsla(0, 0%, 100%, 0.5);
     text-align: right;
     padding-top: 30px;
     line-height: 40px;
@@ -83,6 +84,7 @@ export default styled(Sidebar)`
 
     li {
       padding: 10px;
+      color: hsla(0, 0%, 100%, 0.5);
     }
     link {
     }
