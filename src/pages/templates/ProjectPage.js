@@ -26,6 +26,9 @@ export const query = graphql`
           productPageCaption
           created_at
           updated_at
+          pageImage {
+            publicURL
+          }
         }
       }
     }
@@ -45,6 +48,7 @@ const ProjectPage = ({ className, data }) => {
     projectStatus,
     technologies,
     title,
+    pageImage,
   } = project
   return (
     <Layout padding="0px" className={className}>
@@ -64,7 +68,7 @@ const ProjectPage = ({ className, data }) => {
         }
       >
         <div className="project_page_image">
-          <img src={bg}></img>
+          <img src={pageImage.publicURL}></img>
           <div>{projectPageCaption}</div>
         </div>
         <div className="project_details">
