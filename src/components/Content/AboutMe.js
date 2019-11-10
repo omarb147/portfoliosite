@@ -32,7 +32,8 @@ const AboutMe = ({ className, id }) => {
       id={id}
     >
       <div>
-        <ReactMarkdown source={homepageAboutme} />
+        {console.log(<ReactMarkdown source={homepageAboutme} />)}
+        <ReactMarkdown source={homepageAboutme} escapeHtml={false} />
       </div>
       {/* <div className="action_button">
         <Button>Check My CV</Button>

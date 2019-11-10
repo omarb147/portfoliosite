@@ -97,7 +97,7 @@ const ProjectPage = props => {
         <HR color="#a2a2a2" />
         <div>
           <h2> Project Details</h2>
-          <ReactMarkdown source={projectDetails} />
+          <ReactMarkdown source={projectDetails} escapeHtml={false} />
         </div>
       </ContentLayout>
     </Layout>

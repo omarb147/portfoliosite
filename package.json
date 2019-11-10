@@ -25,6 +25,7 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.8.0",
     "react-markdown": "^4.2.2",
+    "remarkable": "^2.0.0",
     "scroll-to-element": "^2.0.3",
     "styled-components": "^4.4.0"
   },
