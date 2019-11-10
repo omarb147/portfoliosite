@@ -11,7 +11,7 @@ import RoundedIcon from "../../components/Utils/RoundedIcon"
 import * as ROUTES from "../../constants/routes"
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String) {
     allStrapiProject(filter: { slug: { eq: $slug } }) {
       edges {
         node {
@@ -35,9 +35,8 @@ export const query = graphql`
   }
 `
 
-const ProjectPage = ({ className, data }) => {
-  const project = data.allStrapiProject.edges[0].node
-  console.log(project)
+const ProjectPage = props => {
+  const project = props.data.allStrapiProject.edges[0].node
   const {
     demoLink,
     githubRepo,
@@ -51,7 +50,7 @@ const ProjectPage = ({ className, data }) => {
     pageImage,
   } = project
   return (
-    <Layout padding="0px" className={className}>
+    <Layout padding="0px" className={props.className}>
       <ContentLayout
         mainTitle={
           <div className="page_title_header">

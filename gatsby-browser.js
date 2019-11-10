@@ -6,7 +6,6 @@ import scrollToElement from "scroll-to-element"
  */
 
 export const onRouteUpdate = ({ location }) => {
-  console.log("here")
   checkHash(location)
 }
 

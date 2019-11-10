@@ -39,7 +39,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     "./src/pages/templates/ProjectPage.js"
   )
 
-  console.log(projectPageTemplate)
   result.data.allStrapiProject.edges.forEach(({ node }) => {
     const pathSlug = `/${node.slug}`
     createPage({
